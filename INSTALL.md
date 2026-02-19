@@ -71,6 +71,6 @@
 
 ---
 
-# README
+# INSTALL
 
 ## Minesweeper
