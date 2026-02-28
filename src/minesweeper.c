@@ -32,6 +32,7 @@ int main(int argc, char **argv)
     if (!f)
     {
         printf("Error opening file.\n");
+        freeBoard(board, M);
         exit(1);
     }
 
@@ -64,6 +65,7 @@ int** setBoard(int **board, int M, int N)
     if (!board)
     {
         printf("Error in allocating heap memory for M dimension.\n");
+        free(board);
         exit(1);
     }
     
@@ -73,6 +75,7 @@ int** setBoard(int **board, int M, int N)
         if (!board[i])
         {
             printf("Error in allocating heap memory for N dimension.\n");
+            freeBoard(board, i); 
             exit(1);
         }
     }
