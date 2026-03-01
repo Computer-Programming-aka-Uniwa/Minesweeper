@@ -21,6 +21,8 @@ int main(int argc, char **argv)
 
     setInput(&K, &M, &N);
     board = setBoard(board, M, N);
+    if (!board)
+        exit(1);
     board = placeBombs(board, M, N, K);
     board = findNeighborBombs(board, M, N);
     printBoard2Stdout(board, M, N);
@@ -59,14 +61,13 @@ void setInput(int *ptrK, int *ptrM, int *ptrN)
 
 int** setBoard(int **board, int M, int N)
 {
-    int i;
+    int i, j;
     
     board = (int **) calloc(M, sizeof(int *));
     if (!board)
     {
         printf("Error in allocating heap memory for M dimension.\n");
-        free(board);
-        exit(1);
+        return NULL;
     }
     
     for (i = 0; i < M; i++)
@@ -75,8 +76,12 @@ int** setBoard(int **board, int M, int N)
         if (!board[i])
         {
             printf("Error in allocating heap memory for N dimension.\n");
-            freeBoard(board, i); 
-            exit(1);
+            for (j = 0; j < i; j++)
+                free(board[j]);
+
+            free(board);
+
+            return NULL;
         }
     }
 
