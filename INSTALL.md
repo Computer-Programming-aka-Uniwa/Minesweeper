@@ -74,3 +74,57 @@
 # INSTALL
 
 ## Minesweeper
+
+This guide explains how to set up, build, and run the project on your local machine.
+
+---
+
+## 1. Usage
+
+### 1.1 Prerequisites
+
+- A **C compiler** such as `gcc` or `clang`
+- A directory named **boards** in the same folder as the executable (for saving generated boards)
+
+---
+
+## 2. Compilation
+
+```bash
+gcc -o minesweeper_gen main.c
+```
+
+---
+
+## 3. Execution
+### 3.1 Create output directory if it does not exist
+```bash
+mkdir -p boards
+```
+
+### 3.2 Run the program
+```bash
+./minesweeper_gen
+```
+
+---
+
+## 4. Input Example
+```bash
+====== INPUT ======
+Enter dimensions of minesweeper board
+Rows(M)    : 10
+Columns(N) : 10
+Enter number of bombs
+Bombs(K)   : 15
+```
+
+---
+
+## 5. Important Notes
+The program currently uses `scanf` for input. Only integer values should be entered to avoid undefined behavior.
+Ensure the number of bombs satisfies:
+```bash
+K < M × N
+```
+If `K ≥ M × N`, the bomb placement loop may result in an infinite loop.
