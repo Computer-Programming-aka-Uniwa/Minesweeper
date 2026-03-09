@@ -86,6 +86,15 @@ This guide explains how to set up, build, and run the project on your local mach
 - A **C compiler** such as `gcc` or `clang`
 - A directory named **boards** in the same folder as the executable (for saving generated boards)
 
+### 1.2 Clone the Repository
+
+Open your terminal or command prompt and run:
+
+```bash
+git clone https://github.com/Computer-Programming-aka-Uniwa/Minesweeper.git
+cd Minesweeper/src
+```
+
 ---
 
 ## 2. Compilation
